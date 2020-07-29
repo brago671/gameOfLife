@@ -1,0 +1,55 @@
+﻿<Window x:Class="GoL.MainWindow" ResizeMode="NoResize"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoL"
+        mc:Ignorable="d"
+        Title="Game of life" Height="511" Width="861">
+    <Grid Background="Gray" Loaded="Grid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="369*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="NextButton" Content="Next" Click="ButtonNext_Click" Grid.Column="2" />
+            <Button x:Name="StartStopButton" Content="Start" Click="ButtonStartStop_Click" Grid.Column="0"/>
+
+            <TextBlock x:Name="IterationTextBlock"  VerticalAlignment="Center" Margin = "10,0,15,0"
+							Foreground="GhostWhite" TextAlignment="Center" Text="Iteration&#x0a; 0" 
+							FontSize="16" Grid.Column="1" Height="41"/>
+
+            <Button x:Name="ClearButton" Content="Clear" Click="ButtonClear_Click"  VerticalAlignment="Top" Grid.Column="5" Height="43"/>
+            <ComboBox x:Name="ComboBoxShapes" Height="30" Text="" VerticalAlignment="Bottom" Grid.Column="5" SelectionChanged="ComboBoxShapes_Selected">
+            </ComboBox>
+
+
+            <Slider x:Name = "SpeedSlider" VerticalAlignment="Bottom"
+							ValueChanged = "SpeedSlider_ValueChanged" TickFrequency = "1" 
+						Margin = "17" Grid.Column="4">
+            </Slider>
+            <TextBlock x:Name="TextBlockSpeed"  VerticalAlignment="Top" Margin = "10"
+							Foreground="GhostWhite" TextAlignment="Center" Text="+     Speed     -" 
+							FontSize="16" Grid.Column="4"/>
+
+            <Button x:Name="AquaColorButton"  Background="Aqua" Click="ButtonAquaColor_Click"  VerticalAlignment="Top" Grid.Column="3" Height="25" Width="25" Margin="5"/>
+            <Button x:Name="WhiteColorButton"  Background="White" Click="ButtonWhiteColor_Click"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Height="25" Width="25" Margin="21,5,0,0"/>
+            <Button x:Name="HotPinkColorButton"  Background="HotPink" Click="ButtonHotPinkColor_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="3" Height="25" Width="25" Margin="0,5,21,0"/>
+            <Button x:Name="KhakiColorButton"  Background="Khaki" Click="ButtonKhakiColor_Click"  HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="3" Height="25" Width="25" Margin="0,37,42,0"/>
+            <Button x:Name="GreenYellowColorButton"  Background="GreenYellow" Click="ButtonGreenYellowColor_Click"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Height="25" Width="25" Margin="42,37,0,0"/>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Canvas x:Name="MainCanvas"/>
+        </Grid>
+    </Grid>
+</Window>
